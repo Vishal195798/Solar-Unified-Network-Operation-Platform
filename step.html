@@ -1,0 +1,716 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SUNOP - Solar Unified Network Operation Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <script>
+
+    const loggedIn =
+        localStorage.getItem(
+            "sunopLoggedIn"
+        );
+
+    if (loggedIn !== "true") {
+
+        window.location.href =
+            "login.html";
+
+    }
+
+</script>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            ☀ SUNOP
+        </div>
+
+        <div class="header-title">
+            Solar Unified Network Operation Platform
+        </div>
+
+        <div class="user">
+            <button onclick="logout()">
+            Admin
+
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <h2>MENU</h2>
+
+            <button onclick="showDashboard()">Dashboard</button>
+
+<button onclick="showSolarPlants()">Solar Plants</button>
+
+<button onclick="showMonitoring()">Live Monitoring</button>
+<button onclick="showAddReading()">Add Reading</button>
+
+<button onclick="showReports()">Energy Reports</button>
+
+<button onclick="showAlerts()">Alerts</button>
+
+<button onclick="showSettings()">Settings</button>
+        </aside>
+
+<main class="main-content">
+
+    <!-- Dashboard Section -->
+    <section id="dashboardSection">
+
+        <h1>Solar Dashboard</h1>
+
+        <p class="welcome">
+            Welcome to SUNOP Monitoring System
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Power Generation</h3>
+                <p class="value" id="dashboardPower">0 kW</p>
+                <span>Current Power</span>
+            </div>
+
+            <div class="card">
+                <h3>Energy Today</h3>
+                <p class="value" id="dashboardEnergy">0 kWh</p>
+                <span>Today's Energy</span>
+            </div>
+
+            <div class="card">
+                <h3>Temperature</h3>
+             <p class="value" id="dashboardTemperature">0 °C</p>
+                <span>Panel Temperature</span>
+            </div>
+
+            <div class="card">
+                <h3>System Status</h3>
+                <p class="status" id="dashboardStatus">● OFF</p>
+                <span>Plant Status</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Solar Plants Section -->
+    
+
+
+<section id="solarPlantsSection" class="hidden-section">
+
+    <h1>Solar Plants</h1>
+
+    <div id="plantsContainer">
+
+        <p>Loading solar plants...</p>
+
+    </div>
+
+</section>
+
+
+<!-- Live Monitoring Section -->
+
+    <section id="monitoringSection" class="hidden-section">
+
+    <h1>Live Monitoring</h1>
+
+    <div class="monitor-box">
+
+        <div>
+            <h3>Voltage</h3>
+            <p id="voltageValue">0 V</p>
+        </div>
+
+        <div>
+            <h3>Current</h3>
+            <p id="currentValue">0 A</p>
+        </div>
+
+        <div>
+            <h3>Power</h3>
+            <p id="powerValue">0 kW</p>
+        </div>
+
+        <div>
+            <h3>Temperature</h3>
+            <p id="temperatureValue">0 °C</p>
+        </div>
+
+        <div>
+            <h3>Energy Today</h3>
+            <p id="energyTodayValue">0 kWh</p>
+        </div>
+
+        <div>
+            <h3>Status</h3>
+            <p id="statusValue">OFF</p>
+        </div>
+
+    </div>
+
+    <h2>Live Power Graph</h2>
+
+    <canvas id="powerChart"></canvas>
+
+</section>
+
+<!-- Add Solar Reading Section -->
+
+<section id="addReadingSection" class="hidden-section">
+
+    <h1>Add Solar Reading</h1>
+
+    <div class="plant-section">
+
+        <h2>Enter Solar Data</h2>
+
+        <form id="solarReadingForm">
+
+
+            <p>
+    <label>Solar Plant</label><br>
+
+    <select id="inputPlant" required>
+
+        <option value="">
+            Select Solar Plant
+        </option>
+
+    </select>
+</p>
+
+            <p>
+                <label>Voltage (V)</label><br>
+                <input type="number"
+                       id="inputVoltage"
+                       step="0.1"
+                       required>
+            </p>
+
+            <p>
+                <label>Current (A)</label><br>
+                <input type="number"
+                       id="inputCurrent"
+                       step="0.1"
+                       required>
+            </p>
+
+            <p>
+                <label>Power (kW)</label><br>
+                <input type="number"
+                       id="inputPower"
+                       step="0.01"
+                       required>
+            </p>
+
+            <p>
+                <label>Temperature (°C)</label><br>
+                <input type="number"
+                       id="inputTemperature"
+                       step="0.1"
+                       required>
+            </p>
+
+            <p>
+                <label>Energy Today (kWh)</label><br>
+                <input type="number"
+                       id="inputEnergyToday"
+                       step="0.1"
+                       required>
+            </p>
+
+            <p>
+                <label>Status</label><br>
+
+                <select id="inputStatus" required>
+
+                    <option value="ON">
+                        ON
+                    </option>
+
+                    <option value="OFF">
+                        OFF
+                    </option>
+
+                </select>
+
+            </p>
+
+            <button type="submit">
+                Save Reading
+            </button>
+
+        </form>
+
+        <p id="saveMessage"></p>
+
+    </div>
+
+</section>
+
+    <!-- Reports Section -->
+   
+<section id="reportsSection" class="hidden-section">
+
+    <h1>Energy Reports</h1>
+
+    <!-- ================================ -->
+    <!-- Energy Summary -->
+    <!-- ================================ -->
+
+    <div class="plant-section">
+
+        <h2>Energy Summary</h2>
+
+        <p>
+            <strong>Today:</strong>
+            <span id="todayEnergy">0 kWh</span>
+        </p>
+
+        <p>
+            <strong>This Week:</strong>
+            <span id="weeklyEnergy">0 kWh</span>
+        </p>
+
+        <p>
+            <strong>This Month:</strong>
+            <span id="monthlyEnergy">0 kWh</span>
+        </p>
+
+    </div>
+
+
+    <!-- ================================ -->
+    <!-- All Plant Daily History -->
+    <!-- ================================ -->
+
+    <div class="plant-section">
+
+        <h2>Daily Energy History</h2>
+
+        <table border="1"
+               cellpadding="10"
+               cellspacing="0"
+               width="100%">
+
+            <thead>
+
+                <tr>
+                    <th>Date</th>
+                    <th>Energy Generated (kWh)</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="dailyEnergyTable">
+
+                <tr>
+                    <td colspan="2">
+                        Loading daily history...
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- ================================ -->
+    <!-- All Plant Energy Graph -->
+    <!-- ================================ -->
+
+    <div class="plant-section">
+
+        <h2>Daily Energy Generation Graph</h2>
+
+        <canvas id="energyHistoryChart"></canvas>
+
+    </div>
+
+
+    <!-- ================================ -->
+    <!-- Plant-wise Report -->
+    <!-- ================================ -->
+
+    <div class="plant-section">
+
+        <h2>Plant-wise Energy Report</h2>
+
+        <p>
+
+            <label for="reportPlant">
+                <strong>Select Solar Plant:</strong>
+            </label>
+
+            <br><br>
+
+            <select id="reportPlant">
+
+                <option value="">
+                    Select Solar Plant
+                </option>
+
+            </select>
+
+        </p>
+
+    </div>
+
+
+    <!-- ================================ -->
+    <!-- Selected Plant History -->
+    <!-- ================================ -->
+
+    <div class="plant-section">
+
+        <h2>Selected Plant Daily History</h2>
+
+        <table border="1"
+               cellpadding="10"
+               cellspacing="0"
+               width="100%">
+
+            <thead>
+
+                <tr>
+                    <th>Date</th>
+                    <th>Energy Generated (kWh)</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="plantDailyEnergyTable">
+
+                <tr>
+                    <td colspan="2">
+                        Select a solar plant
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- ================================ -->
+    <!-- Selected Plant Graph -->
+    <!-- ================================ -->
+
+    <div class="plant-section">
+
+        <h2>Selected Plant Energy Graph</h2>
+
+        <canvas id="plantEnergyChart"></canvas>
+
+    </div>
+
+</section>
+
+    <!-- Alerts Section -->
+    
+<!-- ===================================== -->
+<!-- Alerts Section -->
+<!-- ===================================== -->
+
+<section id="alertsSection" class="hidden-section">
+
+    <h1>Alerts</h1>
+
+
+    <!-- ================================= -->
+    <!-- Current Alerts -->
+    <!-- ================================= -->
+
+    <div class="plant-section">
+
+        <h2>Current System Alerts</h2>
+
+        <div id="alertsList">
+
+            <div class="alert-card alert-info">
+
+                <div class="alert-icon">
+                    ℹ
+                </div>
+
+                <div class="alert-content">
+
+                    <h3>Loading Alerts</h3>
+
+                    <p>
+                        Please wait...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- Alert History -->
+    <!-- ================================= -->
+
+    <div class="plant-section">
+
+        <h2>Alert History</h2>
+
+        <div class="table-wrapper">
+
+            <table
+                border="1"
+                cellpadding="10"
+                cellspacing="0"
+                width="100%"
+            >
+
+                <thead>
+
+                    <tr>
+
+                        <th>Date & Time</th>
+
+                        <th>Solar Plant</th>
+
+                        <th>Level</th>
+
+                        <th>Message</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="alertHistoryTable">
+
+                    <tr>
+
+                        <td colspan="4">
+                            Loading alert history...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- Settings Section -->
+    
+<section id="settingsSection" class="hidden-section">
+
+    <h1>Settings</h1>
+
+
+    <!-- ================================= -->
+    <!-- Plant Information -->
+    <!-- ================================= -->
+
+    <div class="plant-section">
+
+        <h2>Plant Information</h2>
+
+        <p>
+            <strong>Plant Name:</strong>
+            <span id="settingsPlantName">
+                ---
+            </span>
+        </p>
+
+        <p>
+            <strong>Location:</strong>
+            <span id="settingsLocation">
+                ---
+            </span>
+        </p>
+
+        <p>
+            <strong>Capacity:</strong>
+            <span id="settingsCapacity">
+                0 kW
+            </span>
+        </p>
+
+        <p>
+            <strong>Total Panels:</strong>
+            <span id="settingsPanels">
+                0
+            </span>
+        </p>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- System Status -->
+    <!-- ================================= -->
+
+    <div class="plant-section">
+
+        <h2>System Status</h2>
+
+        <p>
+            <strong>Backend:</strong>
+            <span id="backendStatus">
+                Checking...
+            </span>
+        </p>
+
+        <p>
+            <strong>Solar API:</strong>
+            <span id="solarApiStatus">
+                Checking...
+            </span>
+        </p>
+
+        <p>
+            <strong>Plants API:</strong>
+            <span id="plantsApiStatus">
+                Checking...
+            </span>
+        </p>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- Database Information -->
+    <!-- ================================= -->
+
+    <div class="plant-section">
+
+        <h2>Database Information</h2>
+
+        <p>
+            <strong>Database:</strong>
+            MySQL
+        </p>
+
+        <p>
+            <strong>Database Name:</strong>
+            sunop
+        </p>
+
+        <p>
+            <strong>Connection:</strong>
+            <span id="databaseStatus">
+                Checking...
+            </span>
+        </p>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- Project Information -->
+    <!-- ================================= -->
+
+    <div class="plant-section">
+
+        <h2>Project Information</h2>
+
+        <p>
+            <strong>Project:</strong>
+            Solar Unified Network Operation Platform
+        </p>
+
+        <p>
+            <strong>Short Name:</strong>
+            SUNOP
+        </p>
+
+        <p>
+            <strong>Backend:</strong>
+            Spring Boot
+        </p>
+
+        <p>
+            <strong>Database:</strong>
+            MySQL
+        </p>
+
+        <p>
+            <strong>Frontend:</strong>
+            HTML, CSS, JavaScript
+        </p>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- Refresh -->
+    <!-- ================================= -->
+
+    <div class="plant-section">
+
+        <h2>Settings Control</h2>
+
+        <button
+            type="button"
+            onclick="refreshSettings()"
+        >
+            Refresh Settings
+        </button>
+
+        <p id="settingsRefreshMessage"></p>
+
+    </div>
+
+</section>
+</main>
+        
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>
+            © 2026 SUNOP - Solar Unified Network Operation Platform
+        </p>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+     <script src="script.js"></script>
+
+</body>
+
+</html>
+

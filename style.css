@@ -1,0 +1,1276 @@
+/* ===================================== */
+/* SUNOP - Main Style */
+/* ===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ===================================== */
+/* Body */
+/* ===================================== */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+    overflow-x: hidden;
+}
+
+
+/* ===================================== */
+/* Header */
+/* ===================================== */
+
+.header {
+    min-height: 70px;
+    background-color: #1f2937;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    gap: 20px;
+}
+
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+
+.header-title {
+    font-size: 18px;
+    text-align: center;
+    flex: 1;
+}
+
+
+.user {
+    background-color: #374151;
+    padding: 10px 18px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+
+/* ===================================== */
+/* Main Container */
+/* ===================================== */
+
+.container {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+
+    min-height: calc(100vh - 120px);
+}
+
+
+/* ===================================== */
+/* Sidebar */
+/* ===================================== */
+
+.sidebar {
+    width: 230px;
+    flex-shrink: 0;
+
+    background-color: #111827;
+
+    padding: 25px 15px;
+}
+
+
+.sidebar h2 {
+    color: #9ca3af;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+
+.sidebar a {
+    display: block;
+
+    color: white;
+    text-decoration: none;
+
+    padding: 13px 15px;
+    margin-bottom: 8px;
+
+    border-radius: 5px;
+}
+
+
+.sidebar a:hover {
+    background-color: #374151;
+}
+
+
+/* Sidebar buttons */
+
+.sidebar button {
+    display: block;
+
+    width: 100%;
+
+    background-color: transparent;
+
+    border: none;
+
+    color: white;
+
+    text-align: left;
+
+    font-size: 15px;
+
+    padding: 13px 15px;
+
+    margin-bottom: 8px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.sidebar button:hover {
+    background-color: #374151;
+}
+
+
+/* ===================================== */
+/* Main Content */
+/* ===================================== */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+
+    padding: 30px;
+
+    overflow: visible;
+}
+
+
+.main-content h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+
+.welcome {
+    color: #6b7280;
+    margin-top: 8px;
+    margin-bottom: 25px;
+}
+
+
+/* ===================================== */
+/* Cards */
+/* ===================================== */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+.card {
+    background-color: white;
+
+    padding: 22px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+
+    min-width: 0;
+}
+
+
+.card h3 {
+    color: #4b5563;
+    font-size: 16px;
+}
+
+
+.value {
+    font-size: 28px;
+    font-weight: bold;
+
+    margin: 15px 0 8px;
+}
+
+
+.card span {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+
+.status {
+    color: green;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    margin: 15px 0 8px;
+}
+
+
+/* ===================================== */
+/* Plant Section */
+/* ===================================== */
+
+.plant-section {
+    width: 100%;
+
+    background-color: white;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+
+    overflow: visible;
+}
+
+
+.plant-section h2 {
+    margin-bottom: 20px;
+}
+
+
+.plant-info {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+
+.plant-info p {
+    background-color: #f9fafb;
+
+    padding: 15px;
+
+    border-radius: 6px;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* ===================================== */
+/* Monitoring */
+/* ===================================== */
+
+.monitor-section {
+    margin-top: 25px;
+}
+
+
+.monitor-section h2 {
+    margin-bottom: 15px;
+}
+
+
+.monitor-box {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+.monitor-box div {
+    background-color: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+
+    min-width: 0;
+}
+
+
+.monitor-box h3 {
+    color: #6b7280;
+}
+
+
+.monitor-box p {
+    font-size: 30px;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* ===================================== */
+/* Footer */
+/* ===================================== */
+
+.footer {
+    min-height: 50px;
+
+    background-color: #1f2937;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    padding: 10px 15px;
+}
+
+
+/* ===================================== */
+/* Hidden Sections */
+/* ===================================== */
+
+.hidden-section {
+    display: none;
+}
+
+
+/* ===================================== */
+/* General Buttons */
+/* ===================================== */
+
+button {
+    cursor: pointer;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 10px 18px;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+
+button:hover {
+    transform: translateY(-1px);
+
+    opacity: 0.92;
+}
+
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* ===================================== */
+/* Header Admin Button */
+/* ===================================== */
+
+.user button {
+    background: #36445a;
+
+    color: white;
+
+    padding: 10px 22px;
+
+    font-weight: bold;
+}
+
+
+/* ===================================== */
+/* Add Reading Form */
+/* ===================================== */
+
+#solarReadingForm {
+    width: 100%;
+    max-width: 600px;
+
+    margin: 0 auto;
+}
+
+
+#solarReadingForm p {
+    width: 100%;
+
+    margin-bottom: 18px;
+}
+
+
+#solarReadingForm label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+}
+
+
+#solarReadingForm input,
+#solarReadingForm select {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid #c9ced6;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    background: white;
+}
+
+
+#solarReadingForm input:focus,
+#solarReadingForm select:focus {
+    outline: none;
+
+    border-color: #4b6b95;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(75, 107, 149, 0.12);
+}
+
+
+/* Save button */
+
+#solarReadingForm button[type="submit"] {
+    width: 100%;
+
+    margin-top: 5px;
+
+    background: #1d4ed8;
+
+    color: white;
+
+    font-weight: bold;
+
+    padding: 12px 24px;
+}
+
+
+/* ===================================== */
+/* Save Message */
+/* ===================================== */
+
+#saveMessage {
+    width: 100%;
+
+    margin-top: 15px;
+
+    font-weight: bold;
+
+    min-height: 24px;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* ===================================== */
+/* Success / Error Messages */
+/* ===================================== */
+
+#saveMessage,
+#loginMessage,
+#settingsRefreshMessage {
+    margin-top: 15px;
+
+    padding: 10px 14px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    overflow-wrap: anywhere;
+}
+
+
+.message-error {
+    color: #b91c1c;
+
+    background: #fee2e2;
+
+    border: 1px solid #fca5a5;
+}
+
+
+.message-success {
+    color: #166534;
+
+    background: #dcfce7;
+
+    border: 1px solid #86efac;
+}
+
+
+.message-info {
+    color: #1e40af;
+
+    background: #dbeafe;
+
+    border: 1px solid #93c5fd;
+}
+
+
+/* ===================================== */
+/* Report Dropdown */
+/* ===================================== */
+
+#reportPlant {
+    width: 100%;
+
+    max-width: 350px;
+
+    padding: 10px 12px;
+
+    border: 1px solid #c9ced6;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    background: white;
+}
+
+
+#reportPlant:focus {
+    outline: none;
+
+    border-color: #4b6b95;
+}
+
+
+/* ===================================== */
+/* Tables */
+/* ===================================== */
+
+.table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+
+table {
+    border-collapse: collapse;
+
+    background: white;
+
+    width: 100%;
+
+    max-width: 100%;
+}
+
+
+table th {
+    font-weight: bold;
+}
+
+
+table th,
+table td {
+    padding: 11px;
+
+    vertical-align: middle;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* Alert history */
+
+#alertHistoryTable tr:hover {
+    background: #f5f5f5;
+}
+
+
+/* ===================================== */
+/* Alert UI */
+/* ===================================== */
+
+#alertsList {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+.alert-card {
+    width: 100%;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    border: 1px solid #ddd;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0, 0, 0, 0.08);
+
+    overflow-wrap: anywhere;
+}
+
+
+.alert-icon {
+    width: 45px;
+
+    height: 45px;
+
+    min-width: 45px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+
+.alert-content {
+    min-width: 0;
+}
+
+
+.alert-content h3 {
+    margin: 0 0 6px 0;
+
+    font-size: 18px;
+}
+
+
+.alert-content p {
+    margin: 0;
+
+    font-size: 15px;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* Critical */
+
+.alert-critical {
+    border-left: 6px solid #dc2626;
+}
+
+
+.alert-critical .alert-icon {
+    background: #fee2e2;
+
+    color: #dc2626;
+}
+
+
+.alert-critical h3 {
+    color: #dc2626;
+}
+
+
+/* Warning */
+
+.alert-warning {
+    border-left: 6px solid #f59e0b;
+}
+
+
+.alert-warning .alert-icon {
+    background: #fef3c7;
+
+    color: #d97706;
+}
+
+
+.alert-warning h3 {
+    color: #d97706;
+}
+
+
+/* Normal */
+
+.alert-normal {
+    border-left: 6px solid #16a34a;
+}
+
+
+.alert-normal .alert-icon {
+    background: #dcfce7;
+
+    color: #16a34a;
+}
+
+
+.alert-normal h3 {
+    color: #16a34a;
+}
+
+
+/* Info */
+
+.alert-info {
+    border-left: 6px solid #2563eb;
+}
+
+
+.alert-info .alert-icon {
+    background: #dbeafe;
+
+    color: #2563eb;
+}
+
+
+.alert-info h3 {
+    color: #2563eb;
+}
+
+
+/* ===================================== */
+/* Canvas / Graph */
+/* ===================================== */
+
+canvas {
+    display: block;
+
+    width: 100% !important;
+
+    max-width: 100%;
+
+    height: auto !important;
+}
+
+
+/* ===================================== */
+/* Responsive - Tablet */
+/* ===================================== */
+
+@media (max-width: 900px) {
+
+    .header {
+        padding: 0 20px;
+    }
+
+
+    .cards {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .monitor-box {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* ===================================== */
+/* Responsive - Mobile */
+/* ===================================== */
+
+@media (max-width: 700px) {
+
+    html,
+    body {
+        width: 100%;
+
+        min-height: 100%;
+
+        overflow-x: hidden;
+
+        overflow-y: auto;
+    }
+
+
+    /* Header */
+
+    .header {
+        min-height: auto;
+
+        padding: 14px 15px;
+
+        gap: 10px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .logo {
+        font-size: 21px;
+    }
+
+
+    .header-title {
+        display: none;
+    }
+
+
+    .user {
+        padding: 8px 12px;
+
+        margin-left: auto;
+    }
+
+
+    /* Main container */
+
+    .container {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        min-height: auto;
+    }
+
+
+    /* Mobile sidebar */
+
+    .sidebar {
+        width: 100%;
+
+        flex-shrink: 0;
+
+        padding: 15px;
+
+        order: 1;
+    }
+
+
+    .sidebar h2 {
+        margin-bottom: 12px;
+    }
+
+
+    .sidebar button {
+        width: 100%;
+
+        margin-bottom: 0;
+
+        padding: 11px 12px;
+
+        font-size: 14px;
+
+        text-align: center;
+    }
+
+
+    /* Sidebar menu in 2 columns */
+
+    .sidebar {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+    }
+
+
+    .sidebar h2 {
+        grid-column: 1 / -1;
+    }
+
+
+    /* Main content */
+
+    .main-content {
+        width: 100%;
+
+        min-width: 0;
+
+        padding: 18px 14px;
+
+        order: 2;
+    }
+
+
+    .main-content h1 {
+        font-size: 27px;
+
+        line-height: 1.2;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    /* Cards */
+
+    .cards {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    /* Plant */
+
+    .plant-section {
+        width: 100%;
+
+        margin-top: 18px;
+
+        padding: 18px;
+
+        overflow: visible;
+    }
+
+
+    .plant-section h2 {
+        font-size: 22px;
+
+        line-height: 1.25;
+    }
+
+
+    .plant-info {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Monitoring */
+
+    .monitor-box {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    .monitor-box div {
+        padding: 18px;
+    }
+
+
+    .monitor-box p {
+        font-size: 27px;
+    }
+
+
+    /* Add Reading */
+
+    #solarReadingForm {
+        width: 100%;
+
+        max-width: 100%;
+
+        margin: 0;
+    }
+
+
+    #solarReadingForm p {
+        width: 100%;
+
+        margin-bottom: 16px;
+    }
+
+
+    #solarReadingForm input,
+    #solarReadingForm select {
+        width: 100%;
+
+        max-width: 100%;
+
+        font-size: 16px;
+
+        min-height: 44px;
+    }
+
+
+    #solarReadingForm button[type="submit"] {
+        width: 100%;
+
+        min-height: 46px;
+
+        font-size: 16px;
+    }
+
+
+    /* Reports */
+
+    #reportPlant {
+        width: 100%;
+
+        max-width: 100%;
+
+        min-width: 0;
+    }
+
+
+    .table-wrapper {
+        width: 100%;
+
+        overflow-x: auto;
+    }
+
+
+    table {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+
+    table th,
+    table td {
+        padding: 9px;
+
+        font-size: 14px;
+    }
+
+
+    /* Alerts */
+
+    .alert-card {
+        flex-direction: row;
+
+        gap: 12px;
+
+        padding: 14px;
+    }
+
+
+    .alert-icon {
+        width: 40px;
+
+        height: 40px;
+
+        min-width: 40px;
+
+        font-size: 19px;
+    }
+
+
+    .alert-content h3 {
+        font-size: 16px;
+    }
+
+
+    .alert-content p {
+        font-size: 14px;
+    }
+
+
+    /* Footer */
+
+    .footer {
+        min-height: 55px;
+
+        font-size: 12px;
+
+        padding: 10px;
+    }
+}
+
+
+/* ===================================== */
+/* Very Small Mobile */
+/* ===================================== */
+
+@media (max-width: 400px) {
+
+    .logo {
+        font-size: 19px;
+    }
+
+
+    .user {
+        font-size: 14px;
+
+        padding: 7px 10px;
+    }
+
+
+    .sidebar {
+        padding: 12px;
+    }
+
+
+    .sidebar button {
+        font-size: 13px;
+
+        padding: 10px 8px;
+    }
+
+
+    .main-content {
+        padding: 16px 12px;
+    }
+
+
+    .main-content h1 {
+        font-size: 25px;
+    }
+
+
+    .plant-section {
+        padding: 16px;
+    }
+
+
+    .plant-section h2 {
+        font-size: 20px;
+    }
+
+
+    #solarReadingForm input,
+    #solarReadingForm select {
+        min-height: 44px;
+
+        font-size: 16px;
+    }
+
+
+    table th,
+    table td {
+        font-size: 13px;
+
+        padding: 8px;
+    }
+}
+
+/* ===================================== */
+/* FINAL MOBILE MENU FIX */
+/* ===================================== */
+
+@media (max-width: 700px) {
+
+    /* Mobile menu compact */
+    .sidebar {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .sidebar h2 {
+        width: 100%;
+        margin-bottom: 5px;
+        padding-left: 5px;
+    }
+
+    /* Menu buttons in horizontal scroll */
+    .sidebar button {
+        flex: 0 0 auto;
+        width: auto;
+        min-width: 110px;
+        margin: 0;
+        padding: 10px 12px;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    /* Put buttons in a horizontal row */
+    .sidebar {
+        overflow-x: auto;
+    }
+
+    .sidebar button {
+        display: inline-block;
+    }
+
+    /* Main content comes immediately after menu */
+    .main-content {
+        width: 100%;
+        padding: 15px 12px;
+        min-width: 0;
+    }
+
+    /* Add Reading card */
+    #addReadingSection {
+        width: 100%;
+        min-height: auto;
+    }
+
+    #addReadingSection .plant-section {
+        width: 100%;
+        padding: 16px;
+    }
+
+    /* Full form */
+    #solarReadingForm {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #solarReadingForm input,
+    #solarReadingForm select {
+        width: 100%;
+        max-width: 100%;
+        min-height: 44px;
+        font-size: 16px;
+    }
+
+    #solarReadingForm button[type="submit"] {
+        width: 100%;
+        min-height: 46px;
+    }
+}
